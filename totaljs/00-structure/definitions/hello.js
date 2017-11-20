@@ -1,0 +1,1 @@
+console.log('Definition: hello.js is loaded');

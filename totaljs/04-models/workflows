@@ -1,0 +1,2 @@
+save             : save (response)
+save  (Contact)  : save (response)  -->  workflow:'send'  -->  workflow:'newsletter'

@@ -1,0 +1,38 @@
+@{title('Titulok stránky')}
+
+@{section script}
+<script>
+	$('body').css('background-color', '#F0F0F0');
+</script>
+@{end}
+
+@{helper address(street, zip, city)}
+<address>
+	@{street}<br />
+	@{zip} @{city}
+</address>
+@{end}
+
+<div>
+	<div><b>Fakturačná adresa</b></div>
+	@{address('Viestova 28', '974 01', 'Banská Bystrica')}
+</div>
+<br />
+<div>
+	<div><b>Poštová adresa</b></div>
+	@{address('Teplická 19', '831 02', 'Bratislava')}
+</div>
+
+<h2>View model: @{model.name}</h2>
+@{foreach m in model.items}
+	<div>Hodnota: @{m}</div>
+@{end}
+<h2>View repository:</h2>
+<div>@{repository.date.format()}</div>
+
+@{view('contact', null)}
+
+@{view('contact', null, '2 minutes')}
+<div><b>Cached partial view</b></div>
+
+@{view('contact')}

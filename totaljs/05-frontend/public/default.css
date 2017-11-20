@@ -1,0 +1,10 @@
+/*auto*/
+
+$fontsize       : 20px;
+
+.default { font-size: $fontsize; }
+
+@keyframes nieco {
+	0% { background-color: red; }
+	100% { background-color: blue; }
+}

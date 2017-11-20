@@ -1,0 +1,4 @@
+home          :  @(Homepage)               --> @(/)
+products      :  @(Products)               --> @(/products/)         --> home
+category      :  {0}                       --> @(/products/{0}/)     --> products
+api           :  API                       --> /api/*
