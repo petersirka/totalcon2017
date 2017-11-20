@@ -1,0 +1,12 @@
+<div data-jc-controller="Products">
+	<h1>@(Products)</h1>
+</div>
+
+<script>
+	CONTROLLER('Products', function(ctrl) {
+		ctrl.scope = 'products';
+		ctrl.reload = function() {
+			console.log('RELOAD');
+		};
+	});
+</script>

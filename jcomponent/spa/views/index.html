@@ -1,0 +1,28 @@
+@{layout('')}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Single Page Application</title>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=11" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="robots" content="all,follow" />
+	<link href="https://cdn.totaljs.com/spa.min.css" rel="stylesheet" type="text/css" />
+	<script src="https://cdn.totaljs.com/spa.min.js"></script>
+	@{import('spa.css', 'spa.js')}
+</head>
+<body data-jc="exec,binder">
+
+	<div class="container">
+		<div data-jc="page" data-jc-path="common.page" data-jc-config="if:users;url:/templates/users.html;reload:Users/reload"></div>
+		<div data-jc="page" data-jc-path="common.page" data-jc-config="if:products;url:/templates/products.html;reload:Products/reload"></div>
+	</div>
+
+	<script>
+		var common = {};
+	</script>
+
+</body>
+</html>
