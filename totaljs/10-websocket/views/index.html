@@ -1,0 +1,40 @@
+@{layout('')}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>WebSocket</title>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=11" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="robots" content="all,follow" />
+	<link href="https://cdn.totaljs.com/spa.min.css" rel="stylesheet" type="text/css" />
+	<script src="https://cdn.totaljs.com/spa.min.js"></script>
+</head>
+<body>
+
+	<div class="container">
+		<h1></h1>
+	</div>
+
+	<script>
+
+		var ws = new WebSocket('ws://127.0.0.1:8000/');
+
+		ws.onopen = function() {
+			console.log('OPEN');
+		};
+
+		ws.onclose = function() {
+			console.log('CLOSE');
+		};
+
+		ws.onmessage = function(e) {
+			var msg = PARSE(decodeURIComponent(e.data));
+			$('h1').html(msg.now.format('HH:mm:ss'));
+		};
+
+	</script>
+
+</body>
+</html>
