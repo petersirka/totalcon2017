@@ -22,6 +22,17 @@
 
 	<script>
 		var common = {};
+
+		ROUTE('/users/', function() {
+			SET('common.page', 'users');
+		});
+
+		ROUTE('/products/', function() {
+			SET('common.page', 'products');
+		});
+
+		NAV.clientside('.link');
+
 	</script>
 
 </body>
