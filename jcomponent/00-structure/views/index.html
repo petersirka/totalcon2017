@@ -1,0 +1,51 @@
+@{layout('')}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Štruktúra</title>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=11" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="robots" content="all,follow" />
+	<link href="https://cdn.totaljs.com/spa.min.css" rel="stylesheet" type="text/css" />
+	<script src="https://cdn.totaljs.com/spa.min.js"></script>
+</head>
+<body>
+
+	<br />
+	<br />
+
+	<div class="container">
+		<div data-jc="title" data-jc-path="document.title"></div>
+		<br />
+		<div data-jc="input" data-jc-path="document.title"></div>
+	</div>
+
+	<script>
+
+		COMPONENT('title', function(self, config) {
+			self.readonly();
+			self.setter = function(value) {
+				self.html(value);
+			};
+		});
+
+		COMPONENT('input', function(self, config) {
+
+			self.make = function() {
+				self.html('<input type="text" data-jc-bind="" />');
+			};
+
+			/*
+			self.state = function(type) {
+				console.log(type, self.isInvalid());
+			};
+			*/
+		});
+
+	</script>
+
+</body>
+</html>

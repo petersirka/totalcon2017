@@ -1,0 +1,64 @@
+@{layout('')}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Navigácia</title>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=11" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="robots" content="all,follow" />
+	<link href="https://cdn.totaljs.com/spa.min.css" rel="stylesheet" type="text/css" />
+	<script src="https://cdn.totaljs.com/spa.min.js"></script>
+	<style>
+		.selected { font-weight: bold; }
+	</style>
+</head>
+<body style="padding:20px 0">
+
+	<div class="container">
+		<nav>
+			<div><a class="nav" href="/">Dashboard</a></div>
+			<div><a class="nav" href="/orders/">Orders</a></div>
+			<div><a class="nav" href="/products/">Products</a></div>
+			<div><a class="nav" href="/users/">Users</a></div>
+		</nav>
+	</div>
+
+	<script>
+
+		// ukázať ENV
+
+		ROUTE('/', function() {
+			console.log('dashboard');
+		});
+
+		ROUTE('/orders/', function() {
+			console.log('orders');
+		}, ['delay']);
+
+		ROUTE('/products/', function() {
+			console.log('products');
+		});
+
+		ROUTE('/users/', function() {
+			console.log('users');
+		});
+
+		ON('location', function() {
+			var nav = $('nav');
+			nav.find('.selected').rclass('selected');
+			nav.find('a[href="{0}"]'.format(NAV.url)).parent().aclass('selected');
+		});
+
+		NAV.middleware('delay', function(next, options, roles) {
+			setTimeout(next, 3000);
+		});
+
+		NAV.clientside('.nav');
+
+	</script>
+
+</body>
+</html>
