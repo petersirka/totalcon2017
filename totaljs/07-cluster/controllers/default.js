@@ -28,7 +28,7 @@ function plain_sum() {
 	});
 }
 
-F.on('cojevcache', function() {
+ON('cojevcache', function() {
 	console.log(F.id, F.cache.items);
 });
 
